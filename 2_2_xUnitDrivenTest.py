@@ -18,13 +18,13 @@ if os.path.exists(psProjectName):
 psProject = polyspace.project.Project(psProjectName)
 
 # Add source folder - Could not refresh the source files
-psProject.Code.Folders.add(os.path.join('2_xUnitDrivenTest','Sources','src'),Recursive=True)
+psProject.Code.Folders.add(os.path.join('2_xUnitDriveTest','Sources','src'),Recursive=True)
 
 # Add include paths
-psProject.IncludePaths.add(os.path.join('2_xUnitDrivenTest','Sources','include'))
+psProject.IncludePaths.add(os.path.join('2_xUnitDriveTest','Sources','include'))
 
 # Add test folder - Could not refresh the test source files
-psProject.Tests.Folders.add(os.path.join('2_xUnitDrivenTest','Tests'),Recursive=True)
+psProject.Tests.Folders.add(os.path.join('2_xUnitDriveTest','Tests'),Recursive=True)
 
 # If you do not refresh the sources, source files in the selected folders are not in the project
 psProject.refreshSources()
