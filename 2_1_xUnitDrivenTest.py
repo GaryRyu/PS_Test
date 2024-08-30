@@ -32,6 +32,9 @@ psProject.refreshSources()
 # Build and Run Tests
 res = polyspace.test.run(psProject)
 
+# Wait to print out the log message from the test run
+time.sleep(10)
+
 # Check overall status of test execution
 if not res.Status.Failed and not res.Status.Incomplete: 
     print("All tests have passed.")

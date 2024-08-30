@@ -35,6 +35,9 @@ psProject.ActiveTestConfiguration.CoverageOptions.Level = polyspace.project.Cove
 # Build and Run Tests
 res = polyspace.test.run(psProject, ProfilingSelection=polyspace.test.ProfilingSelection.COVERAGE)
 
+# Wait to print out the log message from the test run
+time.sleep(10)
+
 # Check overall status of test execution
 if not res.Status.Failed and not res.Status.Incomplete: 
     print("All tests have passed.")
