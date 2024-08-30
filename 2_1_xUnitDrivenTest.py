@@ -1,4 +1,5 @@
 import sys
+import time
 
 # Add Polyspace Test Installation folder to PATH
 sys.path.append(r"C:\Polyspace Test\R2024b_Prerelease\bin\win64")
