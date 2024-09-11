@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os, sys, logging
+from datetime import datetime
 # Add Polyspace Test Installation folder to PATH
 sys.path.append(r"C:\Polyspace Test\R2024b_Prerelease\bin\win64")
 # Load the polyspace.project and polyspace.test modules
@@ -95,14 +96,12 @@ def covMetricsFromProfilingResult(profilingResult, metricsType):
 def main():
     # Test 결과물 저장할 때 Profiling 결과까지 함께 저장했다면 .pstestr 파일이 있는 위치에 codecov-data-files 폴더가 생김
     # 해당 Test 결과물을 로드하면 Profiling 결과까지 결과물 변수(반환값)에 함께 같이 로드됨
-    # 여러 형태로 경로명을 줄 수 있음을 확인. 모두 동일한 결과물을 로딩.
-    psTestResult1 = loadTestResult(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\myResults_240909_1743.pstestr")
-    psTestResult2 = loadTestResult(os.path.join('1_GUIDrivenTest','myResults_240909_1743.pstestr'))
-    psTestResult3 = loadTestResult(r".\1_GUIDrivenTest\myResults_240909_1743.pstestr")
+    fileName = "testResult_"+datetime.now().strftime("%Y%m%d")+".pstestr"
+    psTestResult = loadTestResult(os.path.join('2_xUnit_Driven_Test',fileName))
     
-    ratioAllTestPassed = ratioOfTestsPassed(psTestResult1)
-    ratioAllTestFailed = ratioOfTestsFailed(psTestResult2)
-    ratioAllTestIncompleted = ratioOfTestsIncompleted(psTestResult3)
+    ratioAllTestPassed = ratioOfTestsPassed(psTestResult)
+    ratioAllTestFailed = ratioOfTestsFailed(psTestResult)
+    ratioAllTestIncompleted = ratioOfTestsIncompleted(psTestResult)
     logging.info("============= Summary Test Information for all test cases =============")
     logging.info(f"Ratio of Test Passed: {ratioAllTestPassed:.2f}%")
     logging.info(f"Ratio of Test Failed: {ratioAllTestFailed:.2f}%")
@@ -112,37 +111,37 @@ def main():
         logging.error(f"\033[31mFailed to meet the threshold for test cases.\033[0m")
         # sys.exit(1)
 
-    ratioTestSuites1Passed = ratioOfTestsPassed(psTestResult1.TestSuiteResults)
-    ratioTestSuites2Failed = ratioOfTestsFailed(psTestResult2.TestSuiteResults)
-    ratioTestSuites3Incompleted = ratioOfTestsIncompleted(psTestResult3.TestSuiteResults)
+    ratioTestSuitesPassed = ratioOfTestsPassed(psTestResult.TestSuiteResults)
+    ratioTestSuitesFailed = ratioOfTestsFailed(psTestResult.TestSuiteResults)
+    ratioTestSuitesIncompleted = ratioOfTestsIncompleted(psTestResult.TestSuiteResults)
     
     logging.info("============= Summary Test Information for each specific test suite =============")
-    for element in ratioTestSuites1Passed:
+    for element in ratioTestSuitesPassed:
         logging.info(f"Ratio of Test Passed: {element[1]}% in {element[0]} suite")
-    for element in ratioTestSuites2Failed:
+    for element in ratioTestSuitesFailed:
         logging.info(f"Ratio of Test Failed: {element[1]}% in {element[0]} suite")
-    for element in ratioTestSuites3Incompleted:
+    for element in ratioTestSuitesIncompleted:
         logging.info(f"Ratio of Test Incompleted: {element[1]}% in {element[0]} suite")
 
-    if (any([ratio for ratio in ratioTestSuites3Incompleted if ratio[1] > 0]) or 
-        any([ratio for ratio in ratioTestSuites2Failed if ratio[1] > 10]) or 
-        any([ratio for ratio in ratioTestSuites1Passed if ratio[1] < 90])):
+    if (any([ratio for ratio in ratioTestSuitesIncompleted if ratio[1] > 0]) or 
+        any([ratio for ratio in ratioTestSuitesFailed if ratio[1] > 10]) or 
+        any([ratio for ratio in ratioTestSuitesPassed if ratio[1] < 90])):
         logging.error(f"\033[31mFailed to meet the threshold for test suites.\033[0m")
         # sys.exit(1)
 
     # 여러 형태로 경로명을 줄 수 있음을 확인. 모두 동일한 결과물을 로딩.
-    psProfResult1 = loadProfilingResult(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\codecov-data-files\global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof")
-    psProfResult2 = loadProfilingResult(os.path.join('1_GUIDrivenTest','codecov-data-files','global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof'))
-    psProfResult3 = loadProfilingResult(r".\1_GUIDrivenTest\codecov-data-files\global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof")
+    # psProfResult = loadProfilingResult(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\codecov-data-files\global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof")
+    # psProfResult2 = loadProfilingResult(os.path.join('1_GUIDrivenTest','codecov-data-files','global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof'))
+    # psProfResult3 = loadProfilingResult(r".\1_GUIDrivenTest\codecov-data-files\global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof")
     
     # 지원하는 타입 - 'statement', 'decision', 'condition', 'mcdc', 'function', 'function call', 'function exit'
-    statementMetrics = covMetricsFromProfilingResult(psTestResult1.Profiling, 'statement')
-    decisionMetrics = covMetricsFromProfilingResult(psProfResult1, 'decision')
-    conditionMetrics = covMetricsFromProfilingResult(psTestResult2.Profiling, 'condition')
-    mcdcMetrics = covMetricsFromProfilingResult(psProfResult2, 'mcdc')
-    functionMetrics = covMetricsFromProfilingResult(psTestResult3.Profiling, 'function')
-    functionCallMetrics = covMetricsFromProfilingResult(psProfResult3, 'function call')
-    functionExitMetrics = covMetricsFromProfilingResult(psProfResult3, 'function exit')
+    statementMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'statement')
+    decisionMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'decision')
+    conditionMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'condition')
+    mcdcMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'mcdc')
+    functionMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'function')
+    functionCallMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'function call')
+    functionExitMetrics = covMetricsFromProfilingResult(psTestResult.Profiling, 'function exit')
 
     logging.info("============= Summary Coverage Information of all test cases =============")
     logging.info(f"Statement Coverage: {statementMetrics:.2f}%")

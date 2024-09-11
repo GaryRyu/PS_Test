@@ -1,2 +1,7 @@
 1_GUI_Driven_Test/polyspace_artifacts/
 1_GUI_Driven_Test/1_GUIDrivenTestResults/
+*.backup
+*.pstestr
+1_GUI_Driven_Test/codecov-data-files/
+2_xUnit_Driven_Test/codecov-data-files/
+2_xUnit_Driven_Test/polyspace_artifacts/

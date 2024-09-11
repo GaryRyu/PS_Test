@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os, sys, logging
+from datetime import datetime
 # Add Polyspace Test Installation folder to PATH
 sys.path.append(r"C:\Polyspace Test\R2024b_Prerelease\bin\win64")
 # Load the polyspace.project and polyspace.test modules
@@ -232,38 +233,9 @@ def runCoverageExec():
 
 
 def main():
-    # 프로젝트 설정 시작 - 이미 파일이 존재하면 로드를 진행하고, 없으면 새로 생성할 수 있음.
+        # 프로젝트 설정 시작 - 이미 파일이 존재하면 로드를 진행하고, 없으면 새로 생성할 수 있음.
     # os.path.join()과 같은 함수를 사용할 것이 아니라면 'r' prefix 를 넣어줘야 함.
-    createPolyspaceProject(r".\1_GUI_Driven_Test\GUI_Driven_Test.psprjx")
-    
-    # 소스 파일이나 소스 폴더 추가하기
-    # 기존 프로젝트에 이미 추가되어 있었다면 추가할 필요는 없음
-    # os.path.join()과 같은 함수를 쓸 것이 아니라면, 문자열 앞에 'r' prefix를 붙여줘야 함
-    addSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Sources\src\myFile1.c")
-    addSrcFileOrFolder(r".\1_GUIDrivenTest\Sources\src\myFile1.c")
-    addSrcFileOrFolder(r".\1_GUIDrivenTest\Sources\src\myFile2.c")
-    addSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Sources\src\myFile2.c")
-    addSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Sources\src")
-    addSrcFileOrFolder(r".\1_GUIDrivenTest\Sources\src")
-    addSrcFileOrFolder(r".\1_GUIDrivenTest\Sources\\")       # 마지막 글자는 \로 처리될 수 없음. \"는 특수문자로 처리됨
-    
-    # 헤더를 위한 Include 경로 추가
-    # 기존 프로젝트에 이미 추가되어 있었다면 추가할 필요는 없음
-    addIncPath(os.path.join('1_GUIDrivenTest','Sources','include'))
-    addIncPath(os.path.join('1_GUIDrivenTest','Sources','include'))
-    addIncPath(r".\1_GUIDrivenTest\Sources\include")
-    # addIncPath(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\2_xUnitDrivenTest\Sources\include")
-    # addIncPath(r"2_xUnitDrivenTest\Sources\include")
-    
-    # Test case 관련 소스 코드 추가
-    # 기존 프로젝트에 원하는 Test case들이 추가되어 있었다면 할 필요는 없음
-    addTestSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Tests")
-    addTestSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Tests\test1.c")
-    addTestSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Tests\test2.c")
-    addTestSrcFileOrFolder(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\Tests\test3.c")
-    addTestSrcFileOrFolder(os.path.join('1_GUIDrivenTest','Tests','test1.c'))
-    addTestSrcFileOrFolder(os.path.join('1_GUIDrivenTest','Tests','test2.c'))
-    addTestSrcFileOrFolder(os.path.join('1_GUIDrivenTest','Tests','test3.c'))
+    createPolyspaceProject(r".\1_GUI_Driven_Test\1_GUIDrivenTest.psprjx")
     
     # 측정할 커버리지 메트릭스 선택 -  STATEMENT, DECISION, CONDITION_DECISION, MCDC
     # setCoverageMetricsLevel(STATEMENT)
@@ -273,7 +245,7 @@ def main():
     
     # 정보를 저장해 두고 싶다면 프로젝트 파일로 저장
     # 꼭 할 필요는 없으나 차후 프로젝트 정보를 GUI상에서 열어보려면 필요함 (Build를 진행하면 저장됨)
-    saveProject()
+    # saveProject()
     
     # Build (Optional) - True 또는 False로만 빌드 결과 반환
     # stat = buildTestExec()
@@ -291,7 +263,7 @@ def main():
     covResults = runCoverageExec()
     
     # Save - 만들어진 분석 결과물을 저장
-    covResults.save("myResults_240909_1743.pstestr")
-
+    covResults.save("testResult_" + datetime.now().strftime("%Y%m%d"))
+    
 if __name__ == "__main__":
     main()
