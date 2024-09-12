@@ -3,7 +3,7 @@
 import os, sys, logging
 from datetime import datetime
 # Add Polyspace Test Installation folder to PATH
-sys.path.append(r"C:\Polyspace Test\R2024b_Prerelease\bin\win64")
+sys.path.append(r"C:\Polyspace Test\R2024b\bin\win64")
 # Load the polyspace.project and polyspace.test modules
 import polyspace.project, polyspace.test # type: ignore
 
