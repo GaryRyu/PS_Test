@@ -3,7 +3,14 @@
 import os, sys, logging
 from datetime import datetime
 # Add Polyspace Test Installation folder to PATH
-sys.path.append(r"C:\Polyspace Test\R2024b\bin\win64")
+if os.name == 'nt':
+    os.path.exists(r"C:\Polyspace Test\R2024b\bin\win64")
+    sys.path.append(r"C:\Polyspace Test\R2024b\bin\win64")
+elif os.name == 'posix':
+    os.path.exists(r"/usr/local/Polyspace_Test/R2024b")
+    sys.path.append(r"/usr/local/Polyspace_Test/R2024b")
+else:
+    logging.error(f"\033[31mCould not find a path for Polyspace Test\033[0m")
 # Load the polyspace.project and polyspace.test modules
 import polyspace.project, polyspace.test # type: ignore
 
