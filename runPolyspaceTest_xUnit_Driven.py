@@ -58,7 +58,7 @@ def saveProject():
         psProject.save()
     except Exception as e:
         logging.error(f"\033[31mError saving project: {e}\033[0m")
-        
+
 
 def closeProject():
     try:
@@ -255,14 +255,14 @@ def runCoverageExec():
 def main():
     # 프로젝트 설정 시작 - 이미 파일이 존재하면 로드를 진행하고, 없으면 새로 생성할 수 있음.
     # os.path.join()과 같은 함수를 사용할 것이 아니라면 'r' prefix 를 넣어줘야 함.
-    createPolyspaceProject(r".\2_xUnit_Driven_Test\2_xUnitDrivenTest.psprjx")
+    createPolyspaceProject(r"./2_xUnit_Driven_Test/2_xUnitDrivenTest.psprjx")
     
     # 소스 파일이나 소스 폴더 추가하기
     # 기존 프로젝트에 이미 추가되어 있었다면 추가할 필요는 없음
     # os.path.join()과 같은 함수를 쓸 것이 아니라면, 문자열 앞에 'r' prefix를 붙여줘야 함
     addSrcFileOrFolder(os.path.join('2_xUnit_Driven_Test','Sources','src'))
-    addSrcFileOrFolder(r".\2_xUnit_Driven_Test\Sources\src\myFile1.c")
-    addSrcFileOrFolder(r".\2_xUnit_Driven_Test\Sources\src\myFile2.c")
+    addSrcFileOrFolder(r"./2_xUnit_Driven_Test/Sources/src/myFile1.c")
+    addSrcFileOrFolder(r"./2_xUnit_Driven_Test/Sources/src/myFile2.c")
     addSrcFileOrFolder(os.path.join('2_xUnit_Driven_Test','Sources','src','myFile3.c'))
     
     # 헤더를 위한 Include 경로 추가
