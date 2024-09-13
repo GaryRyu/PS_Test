@@ -107,7 +107,7 @@ def covMetricsFromProfilingResult(profilingResult, metricsType):
 def main():
     # Test 결과물 저장할 때 Profiling 결과까지 함께 저장했다면 .pstestr 파일이 있는 위치에 codecov-data-files 폴더가 생김
     # 해당 Test 결과물을 로드하면 Profiling 결과까지 결과물 변수(반환값)에 함께 같이 로드됨
-    psTestResult = loadTestResult(".\\1_GUI_Driven_Test\\"+"testResult_"+datetime.now().strftime("%Y%m%d")+".pstestr")
+    psTestResult = loadTestResult("./1_GUI_Driven_Test/"+"testResult_"+datetime.now().strftime("%Y%m%d")+".pstestr")
     
     ratioAllTestPassed = ratioOfTestsPassed(psTestResult)
     ratioAllTestFailed = ratioOfTestsFailed(psTestResult)
