@@ -44,12 +44,21 @@ def createPolyspaceProject(psProjectName):
     except Exception as e:
         logging.error(f"\033[31mError in creating/loading project: {e}\033[0m")
         sys.exit(1)
-    
+
+
+def changeToolchain(toolName):
+    try:
+        psProject.ActiveBuildConfiguration.Toolchain = toolName
+    except Exception as e:
+        logging.error(f"\033[31mError changing toolchain: {e}\033[0m")
+
+
 def saveProject():
     try:
         psProject.save()
     except Exception as e:
         logging.error(f"\033[31mError saving project: {e}\033[0m")
+
 
 def closeProject():
     try:
@@ -244,16 +253,31 @@ def runCoverageExec():
 
 
 def main():
-        # 프로젝트 설정 시작 - 이미 파일이 존재하면 로드를 진행하고, 없으면 새로 생성할 수 있음.
     # os.path.join()과 같은 함수를 사용할 것이 아니라면 'r' prefix 를 넣어줘야 함.
-    createPolyspaceProject(r".\1_GUI_Driven_Test\1_GUIDrivenTest.psprjx")
+    createPolyspaceProject(r"./1_GUI_Driven_Test/1_GUIDrivenTest.psprjx")
     
     # 측정할 커버리지 메트릭스 선택 -  STATEMENT, DECISION, CONDITION_DECISION, MCDC
     # setCoverageMetricsLevel(STATEMENT)
     # setCoverageMetricsLevel(DECISION)
     # setCoverageMetricsLevel(CONDITION_DECISION)
     setCoverageMetricsLevel(MCDC)
-    
+
+    # 스크립트 수행하는 OS에 따라 빌드 툴체인 변경
+    if os.name == 'nt':
+        # "MinGW64 | CMake/gmake (64-bit Windows)"
+        # "MinGW64 | CMake/Ninja (64-bit Windows)"
+        # "MinGW64 | gmake (64-bit Windows)"
+        # "Microsoft Visual C++ 2022 v17.0 | CMake/nmake (64-bit Windows)"
+        # "Microsoft Visual C++ 2019 v16.0 | nmake (64-bit Windows)"
+        changeToolchain("MinGW64 | gmake (64-bit Windows)")
+    elif os.name == 'posix':
+        # "GNU gcc/g++ | CMake/gmake (64-bit Linux)"
+        # "GNU gcc/g++ | CMake/Ninja (64-bit Linux)"
+        # "GNU gcc/g++ | gmake (64-bit Linux)"
+        changeToolchain("GNU gcc/g++ | gmake (64-bit Linux)")
+    else:
+        logging.error(f"\033[31mPolyspace Test does not support the OS.\033[0m")
+
     # 정보를 저장해 두고 싶다면 프로젝트 파일로 저장
     # 꼭 할 필요는 없으나 차후 프로젝트 정보를 GUI상에서 열어보려면 필요함 (Build를 진행하면 저장됨)
     # saveProject()
