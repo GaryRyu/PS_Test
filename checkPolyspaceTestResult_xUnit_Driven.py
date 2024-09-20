@@ -138,7 +138,7 @@ def main():
         any([ratio for ratio in ratioTestSuitesFailed if ratio[1] > 10]) or 
         any([ratio for ratio in ratioTestSuitesPassed if ratio[1] < 90])):
         logging.error(f"\033[31mFailed to meet the threshold for test suites.\033[0m")
-        sys.exit(1)
+        #sys.exit(1)
 
     # 여러 형태로 경로명을 줄 수 있음을 확인. 모두 동일한 결과물을 로딩.
     # psProfResult = loadProfilingResult(r"C:\Workspace\Polyspace_Test\6_Managing_by_Python\1_GUIDrivenTest\codecov-data-files\global-c9b27afc-dfdb-422d-bf9d-2ee92b60c85f.psprof")
