@@ -1,0 +1,6 @@
+./sources/example.c
+./sources/initialisations.c
+./sources/main.c
+./sources/single_file_analysis.c
+./sources/tasks1.c
+./sources/tasks2.c
