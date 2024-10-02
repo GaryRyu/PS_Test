@@ -327,7 +327,7 @@
                     "content": {
                         "CreateDate": "2024-09-30T21:28:34",
                         "CreatedBy": "garyryu",
-                        "LastSaveDate": "2024-10-02T10:53:45"
+                        "LastSaveDate": "2024-10-02T11:32:19"
                     },
                     "type": "polyspace.project.datamodel.RootData",
                     "uuid": "60e70b86-90ce-44eb-8f3d-23134688a0de"
@@ -2235,7 +2235,8 @@
                                                 "type": "polyspace.project.datamodel.ScriptedTestStep",
                                                 "uuid": "81530528-b868-4850-a532-d4579478df70"
                                             }
-                                        ]
+                                        ],
+                                        "UserPreamble": "#include \"include.h\""
                                     },
                                     "type": "polyspace.project.datamodel.TabularTest",
                                     "uuid": "b2135637-718b-4ba3-a05d-95b638808068"
