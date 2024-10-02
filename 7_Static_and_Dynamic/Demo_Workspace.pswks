@@ -1,0 +1,39 @@
+{
+    "entries": [
+        {
+            "content": {
+                "Name": "Code_Prover_Example",
+                "Projects": [
+                    {
+                        "content": {
+                            "ModelPath": {
+                                "content": {
+                                    "Value": "Demo_CP_Project.psprjx"
+                                },
+                                "type": "polyspace.project.datamodel.Path"
+                            }
+                        },
+                        "type": "polyspace.project.datamodel.ProjectRef",
+                        "uuid": "9805e336-9db6-404f-8438-a91d6c8ef7c1"
+                    }
+                ],
+                "RootData": {
+                    "content": {
+                        "CreateDate": "2024-09-25T14:32:12",
+                        "CreatedBy": "garyryu",
+                        "LastSaveDate": "2024-09-30T22:21:35"
+                    },
+                    "type": "polyspace.project.datamodel.RootData",
+                    "uuid": "61bb4ef1-bea2-44c4-a262-8fc29e2e44de"
+                }
+            },
+            "type": "polyspace.project.datamodel.Workspace",
+            "uuid": "b970e401-86bf-4d2a-a899-d369841e55be"
+        }
+    ],
+    "packageUris": [
+        "http://schema.mathworks.com/mf0/psprj_mm_project/v1_3",
+        "http://schema.mathworks.com/mf0/psprj_mm_foundation/v1_3"
+    ],
+    "version": "1.0"
+}
