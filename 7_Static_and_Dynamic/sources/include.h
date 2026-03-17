@@ -12,6 +12,7 @@
 #define MAX_SIZE 10
 
 extern void SEND_MESSAGE(int status, const char* message);
+extern int get_bus_status(void);
 extern int read_bus_status(void);
 extern int read_on_bus(void);
 

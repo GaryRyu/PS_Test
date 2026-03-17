@@ -13,42 +13,42 @@
                                                 "Name": "example.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "6b147d54-cf33-4c9a-9e22-7c219dacd6a3"
+                                            "uuid": "0d4522c0-7bc5-4595-935d-c6f89858f750"
                                         },
                                         {
                                             "content": {
                                                 "Name": "initialisations.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "3876af1d-4f91-42d0-a89d-d052094eac50"
+                                            "uuid": "c5252d12-e2e5-4ba1-8896-683dfb88d3f8"
                                         },
                                         {
                                             "content": {
                                                 "Name": "main.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "2395c4fd-7aff-4b2e-b1a1-14515b0b36e0"
+                                            "uuid": "342a75ba-0c2e-49f8-95a2-743013aa5587"
                                         },
                                         {
                                             "content": {
                                                 "Name": "single_file_analysis.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "20cd046f-5948-4264-aa7c-ac7003d63d7e"
+                                            "uuid": "57b5d9d1-a1b8-408d-9848-2f16613d1ef5"
                                         },
                                         {
                                             "content": {
                                                 "Name": "tasks1.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "d7818fef-9f3c-4850-a311-6f5dd22ab38a"
+                                            "uuid": "6d5e3abb-0568-430d-8d57-4373d1471f26"
                                         },
                                         {
                                             "content": {
                                                 "Name": "tasks2.c"
                                             },
                                             "type": "polyspace.project.datamodel.File",
-                                            "uuid": "549f7912-6fcc-482a-9b4d-bb34ff40b7e4"
+                                            "uuid": "3aefe862-83d0-47c1-b723-43e41b64ca3a"
                                         }
                                     ],
                                     "Path": {
@@ -328,7 +328,7 @@
                     "content": {
                         "CreateDate": "2024-09-30T21:28:34",
                         "CreatedBy": "garyryu",
-                        "LastSaveDate": "2026-03-17T20:57:59"
+                        "LastSaveDate": "2026-03-17T21:50:09"
                     },
                     "type": "polyspace.project.datamodel.RootData",
                     "uuid": "60e70b86-90ce-44eb-8f3d-23134688a0de"
@@ -477,28 +477,6 @@
                                 "content": {
                                     "Body": {
                                         "content": {
-                                            "Text": "float ret = (float)(0);\nreturn ret;"
-                                        },
-                                        "type": "polyspace.project.datamodel.TextMockBody",
-                                        "uuid": "2888c8b0-4931-4f72-a9da-3b96f1258f4b"
-                                    },
-                                    "Function": {
-                                        "content": {
-                                            "PrettyName": "random_float(void)"
-                                        },
-                                        "type": "polyspace.project.datamodel.test.MockFunctionInfo",
-                                        "uuid": "394467d6-597f-449c-a483-993cc9c0eaef"
-                                    },
-                                    "ReturnTypeKey": "float",
-                                    "VariantName": "random_float"
-                                },
-                                "type": "polyspace.project.datamodel.ManagedStub",
-                                "uuid": "ce63c426-4b4c-4ab5-9db9-16682ba63f63"
-                            },
-                            {
-                                "content": {
-                                    "Body": {
-                                        "content": {
                                             "Text": "int ret = (int)(2);\nreturn ret;"
                                         },
                                         "type": "polyspace.project.datamodel.TextMockBody",
@@ -554,20 +532,42 @@
                                             "Text": "int ret = (int)(0);\nreturn ret;"
                                         },
                                         "type": "polyspace.project.datamodel.TextMockBody",
-                                        "uuid": "b93c97c1-126e-4fc9-bc5a-37442c9d7e45"
+                                        "uuid": "d09bda57-fe3b-4d57-879c-0e8eaf71c6e8"
                                     },
                                     "Function": {
                                         "content": {
                                             "PrettyName": "get_bus_status(void)"
                                         },
                                         "type": "polyspace.project.datamodel.test.MockFunctionInfo",
-                                        "uuid": "1dd6719d-0b6a-469d-b313-77cea37b22cd"
+                                        "uuid": "38a2fd4b-b4ec-452d-adb7-ad68d24d212d"
                                     },
                                     "ReturnTypeKey": "int",
                                     "VariantName": "get_bus_status"
                                 },
                                 "type": "polyspace.project.datamodel.ManagedStub",
-                                "uuid": "223204f8-5b56-4b2c-877d-f99ec231e8a5"
+                                "uuid": "33fb6bbf-7dab-4aa0-9770-0dda6fcebce6"
+                            },
+                            {
+                                "content": {
+                                    "Body": {
+                                        "content": {
+                                            "Text": "float ret = (float)(0);\nreturn ret;"
+                                        },
+                                        "type": "polyspace.project.datamodel.TextMockBody",
+                                        "uuid": "0e1da101-6043-4141-bf22-0999f47c4a88"
+                                    },
+                                    "Function": {
+                                        "content": {
+                                            "PrettyName": "random_float(void)"
+                                        },
+                                        "type": "polyspace.project.datamodel.test.MockFunctionInfo",
+                                        "uuid": "bad7ad54-4c3e-4826-a60d-be4db344698b"
+                                    },
+                                    "ReturnTypeKey": "float",
+                                    "VariantName": "random_float"
+                                },
+                                "type": "polyspace.project.datamodel.ManagedStub",
+                                "uuid": "bd980b70-cd27-4540-a84f-f1efb7359b73"
                             }
                         ],
                         "Mocks": [
