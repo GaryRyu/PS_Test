@@ -147,6 +147,7 @@
       <check id="2.5" state="on"></check>
       <check id="2.6" state="on"></check>
       <check id="2.7" state="on"></check>
+      <check id="2.8" state="on"></check>
     </section>
     <section name="3 Comments">
       <check id="3.1" state="on"></check>
@@ -178,6 +179,7 @@
       <check id="7.3" state="on"></check>
       <check id="7.4" state="on"></check>
       <check id="7.5" state="on"></check>
+      <check id="7.6" state="on"></check>
     </section>
     <section name="8 Declarations and definitions">
       <check id="8.1" state="on"></check>
@@ -204,6 +206,8 @@
       <check id="9.3" state="on"></check>
       <check id="9.4" state="on"></check>
       <check id="9.5" state="on"></check>
+      <check id="9.6" state="on"></check>
+      <check id="9.7" state="on"></check>
     </section>
     <section name="10 The essential type model">
       <check id="10.1" state="on"></check>
@@ -225,6 +229,7 @@
       <check id="11.7" state="on"></check>
       <check id="11.8" state="on"></check>
       <check id="11.9" state="on"></check>
+      <check id="11.10" state="on"></check>
     </section>
     <section name="12 Expressions">
       <check id="12.1" state="on"></check>
@@ -232,6 +237,7 @@
       <check id="12.3" state="on"></check>
       <check id="12.4" state="on"></check>
       <check id="12.5" state="on"></check>
+      <check id="12.6" state="on"></check>
     </section>
     <section name="13 Side effects">
       <check id="13.1" state="on"></check>
@@ -290,6 +296,7 @@
       <check id="18.7" state="on"></check>
       <check id="18.8" state="on"></check>
       <check id="18.9" state="on"></check>
+      <check id="18.10" state="on"></check>
     </section>
     <section name="19 Overlapping storage">
       <check id="19.1" state="on"></check>
@@ -336,6 +343,8 @@
       <check id="21.22" state="on"></check>
       <check id="21.23" state="on"></check>
       <check id="21.24" state="on"></check>
+      <check id="21.25" state="on"></check>
+      <check id="21.26" state="on"></check>
     </section>
     <section name="22 Resources">
       <check id="22.1" state="on"></check>
@@ -352,6 +361,12 @@
       <check id="22.15" state="on"></check>
       <check id="22.16" state="on"></check>
       <check id="22.17" state="on"></check>
+      <check id="22.12" state="on"></check>
+      <check id="22.13" state="on"></check>
+      <check id="22.14" state="on"></check>
+      <check id="22.18" state="on"></check>
+      <check id="22.19" state="on"></check>
+      <check id="22.20" state="on"></check>
     </section>
     <section name="23 Generic Selections">
       <check id="23.1" state="on"></check>
@@ -509,5 +524,133 @@
   <standard name="SEI CERT C++" state="off"></standard>
   <standard name="AUTOSAR C++14" state="off"></standard>
   <standard name="JSF AV C++" state="off"></standard>
-  <standard name="CWE" state="off"></standard>
+  <standard name="CWE">
+    <section name="Bad Coding Practices">
+      <check id="478" state="on"></check>
+      <check id="562" state="on"></check>
+    </section>
+    <section name="Data Validation Issues">
+      <check id="129" state="on"></check>
+    </section>
+    <section name="Memory Buffer Errors">
+      <check id="120" state="on"></check>
+      <check id="123" state="on"></check>
+      <check id="124" state="on"></check>
+      <check id="125" state="on"></check>
+      <check id="131" state="on"></check>
+      <check id="787" state="on"></check>
+      <check id="805" state="on"></check>
+    </section>
+    <section name="API / Function Errors">
+      <check id="242" state="on"></check>
+      <check id="474" state="on"></check>
+      <check id="676" state="on"></check>
+    </section>
+    <section name="String Errors">
+      <check id="134" state="on"></check>
+      <check id="135" state="on"></check>
+    </section>
+    <section name="Type Errors">
+      <check id="843" state="on"></check>
+    </section>
+    <section name="Data Neutralization Issues">
+      <check id="170" state="on"></check>
+      <check id="188" state="on"></check>
+      <check id="463" state="on"></check>
+    </section>
+    <section name="Numeric Errors">
+      <check id="128" state="on"></check>
+      <check id="190" state="on"></check>
+      <check id="191" state="on"></check>
+      <check id="192" state="on"></check>
+      <check id="197" state="on"></check>
+      <check id="839" state="on"></check>
+    </section>
+    <section name="Data Processing Errors">
+      <check id="130" state="on"></check>
+    </section>
+    <section name="Privilege Issues">
+      <check id="243" state="on"></check>
+    </section>
+    <section name="State Issues">
+      <check id="374" state="on"></check>
+      <check id="375" state="on"></check>
+    </section>
+    <section name="Signal Errors">
+      <check id="364" state="on"></check>
+    </section>
+    <section name="Resource Management Errors">
+      <check id="910" state="on"></check>
+    </section>
+    <section name="Handler Errors">
+      <check id="479" state="on"></check>
+    </section>
+    <section name="Behavioral Problems">
+      <check id="480" state="on"></check>
+      <check id="483" state="on"></check>
+      <check id="484" state="on"></check>
+      <check id="733" state="on"></check>
+      <check id="783" state="on"></check>
+    </section>
+    <section name="Initialization and Cleanup Errors">
+      <check id="460" state="on"></check>
+    </section>
+    <section name="Pointer Issues">
+      <check id="466" state="on"></check>
+      <check id="467" state="on"></check>
+      <check id="468" state="on"></check>
+      <check id="469" state="on"></check>
+      <check id="476" state="on"></check>
+      <check id="587" state="on"></check>
+    </section>
+    <section name="Concurrency Issues">
+      <check id="366" state="on"></check>
+    </section>
+    <section name="Others">
+      <check id="14" state="on"></check>
+      <check id="119" state="on"></check>
+      <check id="121" state="on"></check>
+      <check id="122" state="on"></check>
+      <check id="126" state="on"></check>
+      <check id="127" state="on"></check>
+      <check id="194" state="on"></check>
+      <check id="195" state="on"></check>
+      <check id="196" state="on"></check>
+      <check id="244" state="on"></check>
+      <check id="362" state="on"></check>
+      <check id="401" state="on"></check>
+      <check id="415" state="on"></check>
+      <check id="416" state="on"></check>
+      <check id="457" state="on"></check>
+      <check id="481" state="on"></check>
+      <check id="482" state="on"></check>
+      <check id="495" state="on"></check>
+      <check id="496" state="on"></check>
+      <check id="558" state="on"></check>
+      <check id="560" state="on"></check>
+      <check id="685" state="on"></check>
+      <check id="688" state="on"></check>
+      <check id="690" state="on"></check>
+      <check id="704" state="on"></check>
+      <check id="762" state="on"></check>
+      <check id="785" state="on"></check>
+      <check id="789" state="on"></check>
+      <check id="806" state="on"></check>
+      <check id="1335" state="on"></check>
+      <check id="1341" state="on"></check>
+      <check id="493" state="on"></check>
+      <check id="498" state="on"></check>
+      <check id="500" state="on"></check>
+      <check id="543" state="on"></check>
+    </section>
+    <section name="Permission Issues">
+      <check id="766" state="on"></check>
+      <check id="767" state="on"></check>
+    </section>
+    <section name="Error Conditions, Return Values, Status Codes">
+      <check id="248" state="on"></check>
+      <check id="396" state="on"></check>
+      <check id="397" state="on"></check>
+    </section>
+  </standard>
 </polyspace_checkers_selection>
